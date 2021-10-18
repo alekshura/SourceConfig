@@ -71,3 +71,28 @@ namespace Compentio.SourceConfig.App
     }
 }
 ```
+`AppSettings` is taken from the filename, `Compentio.SourceConfig.App` is taken from place, where configuration file exsts.
+
+Now generated class can be used to retreive the configuration:
+
+```cs
+var appSettings = _configuration.Get<AppSettings>();
+```
+and should be earlier added to container:
+
+```cs
+static IHostBuilder CreateHostBuilder(string[] args)
+{
+    var configuration = new ConfigurationBuilder()
+       .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+       .AddEnvironmentVariables()
+       .Build();
+
+    return Host.CreateDefaultBuilder(args)
+        .ConfigureServices((_, services) =>
+            services
+            .Configure<AppSettings>(configuration)
+            .AddTransient<INotesService, NotesService>());
+}
+```
+
