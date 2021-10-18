@@ -39,8 +39,11 @@ namespace Compentio.SourceConfig.Generator.Generators
 
                 using System;
                 using System.Collections.Generic;
+                using System.Diagnostics.CodeAnalysis;
+
                 namespace {_configurationFileContext.Namespace}
                 {{
+                    [ExcludeFromCodeCoverage]
                     public class {_configurationFileContext.ClassName}
                     {{
                 ");

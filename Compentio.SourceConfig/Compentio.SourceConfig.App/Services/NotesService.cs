@@ -1,5 +1,6 @@
 ﻿using Compentio.SourceConfig.App.Dto;
 using Microsoft.Extensions.Configuration;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Compentio.SourceConfig.App.Services
 {
@@ -8,6 +9,7 @@ namespace Compentio.SourceConfig.App.Services
         NoteDto GetNote(long noteId);
     }
 
+    [ExcludeFromCodeCoverage]
     public class NotesService : INotesService
     {
         private readonly IConfiguration _configuration;
