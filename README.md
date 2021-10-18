@@ -25,7 +25,7 @@ dotnet add package Compentio.SourceConfig
 # How to use
 Create you `*json` configuration file (any `json` files are treated as config files), e.g. `apsetting.json` 
 
-```json
+```js
 {
   "NoteEmailAddresses": [
     "admin@test.com",
