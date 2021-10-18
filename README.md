@@ -23,4 +23,20 @@ dotnet add package Compentio.SourceConfig
 ```
 
 # How to use
-TODO
+Create you `*json` configuration file (any `json` files are treated as config files), e.g. `apsetting.json` 
+
+```json
+{
+  "NoteEmailAddresses": [
+    "admin@test.com",
+    "technical.admin@test.com",
+    "business.admin@test.com"
+  ],
+  "ConnectionTimeout": "30",
+  "ConnectionHost": "https://test.com",
+  "DefaultNote": {
+    "Title": "DefaultTitle",
+    "Description":  "DefaultDescription"
+  }
+}
+```
