@@ -23,7 +23,7 @@ dotnet add package Compentio.SourceConfig
 ```
 
 # How to use
-Create you `*json` configuration file (any `json` files are treated as config files), e.g. `apsetting.json` 
+Lets create you `*json` configuration file (any `json` files are treated as config files), e.g. `apsetting.json` 
 
 ```json
 {
@@ -38,5 +38,36 @@ Create you `*json` configuration file (any `json` files are treated as config fi
     "Title": "DefaultTitle",
     "Description":  "DefaultDescription"
   }
+}
+```
+in that case `SourceConfig` generates
+
+```cs
+// <mapper-source-generated />
+// <generated-at '18.10.2021 14:49:51' />
+using System;
+using System.Collections.Generic;
+
+namespace Compentio.SourceConfig.App
+{
+    public class AppSettings
+    {
+        public IEnumerable<string> NoteEmailAddresses { get; set; }
+
+        public string ConnectionTimeout { get; set; }
+
+        public string ConnectionHost { get; set; }
+
+        public string DatabaseSize { get; set; }
+
+        public DefaultNote DefaultNote { get; set; }
+    }
+
+    public class DefaultNote
+    {
+        public string Title { get; set; }
+
+        public string Description { get; set; }
+    }
 }
 ```
