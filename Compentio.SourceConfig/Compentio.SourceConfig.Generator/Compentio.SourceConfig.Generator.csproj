@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="5.0.1" PrivateAssets="all" GeneratePathProperty="true" />
-    <PackageReference Include="System.Text.Encodings.Web" Version="5.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="5.0.1" PrivateAssets="all" GeneratePathProperty="true" />
     <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="$(PKGSystem_Text_Json)\lib\netstandard2.0\System.Text.Json.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="$(PKGSystem_Text_Encodings_Web)\lib\netstandard2.0\System.Text.Encodings.Web.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
