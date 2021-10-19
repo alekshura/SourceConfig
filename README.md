@@ -1,6 +1,11 @@
 # <img src="/Compentio.Assets/Logo.png" align="left" width="50"> SourceConfig
 
 
+[![NuGet](http://img.shields.io/nuget/v/Compentio.SourceConfig.svg)](https://www.nuget.org/packages/Compentio.SourceConfig)
+![Nuget](https://img.shields.io/nuget/dt/Compentio.SourceConfig)
+![GitHub](https://img.shields.io/github/license/alekshura/SourceConfig)
+![GitHub top language](https://img.shields.io/github/languages/top/alekshura/SourceConfig)
+
 # Introduction
 `SourceConfig` is a code generator for objects that buit using `*.json` configuration files: 
 when developer adds some file or new properties to existng json configuration file the POCO objects for this configuration generated. 
