@@ -10,8 +10,15 @@ using System.Text.Json;
 
 namespace Compentio.SourceConfig.Generator.Generators
 {
+    /// <summary>
+    /// One class code generator
+    /// </summary>
     interface ICodeGenerator
     {
+        /// <summary>
+        /// Generates configuration POCO object for one file
+        /// </summary>
+        /// <returns>Generated and formatted code</returns>
         SourceText GenerateSource();
     }
 

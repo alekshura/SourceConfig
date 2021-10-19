@@ -4,8 +4,14 @@ using System.Linq;
 
 namespace Compentio.SourceConfig.Generator.Context
 {
+     /// <summary>
+     /// Contains for overall configurations that defined in json files in application
+     /// </summary>
     interface IConfigurationContext
     {
+        /// <summary>
+        /// Collection of configuration files information
+        /// </summary>
         IEnumerable<IConfigurationFileContext> Context { get; }
     }
 

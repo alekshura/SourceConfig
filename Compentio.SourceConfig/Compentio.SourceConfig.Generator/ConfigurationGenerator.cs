@@ -5,6 +5,9 @@ using System.Diagnostics;
 
 namespace Compentio.SourceConfig.Generator
 {
+    /// <summary>
+    /// Main source generator
+    /// </summary>
     [Generator]
     public class ConfigurationGenerator : ISourceGenerator
     {

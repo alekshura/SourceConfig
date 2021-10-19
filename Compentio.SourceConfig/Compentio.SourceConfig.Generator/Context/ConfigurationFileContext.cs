@@ -6,14 +6,41 @@ using System.Text.Json;
 
 namespace Compentio.SourceConfig.Generator.Context
 {
+    /// <summary>
+    /// Contains information about one configuration file in te application
+    /// </summary>
     interface IConfigurationFileContext
     {
+        /// <summary>
+        /// Filename of generated POCO file. It is always has <code>*.cs</code> extension.
+        /// </summary>
         string FileName { get; }
+        /// <summary>
+        /// Generated class name
+        /// </summary>
         string ClassName { get; }
+        /// <summary>
+        /// Namespace of generated class. It is concatenation of main application namespaca and directories of configuration files.
+        /// </summary>
         string Namespace { get; }
+        /// <summary>
+        /// Indicated when files should be merged. It is used, when there two or more configuration files defined for different environments:
+        /// <code>appsettings.json</code> or <code>appsettings.development.json</code> etc.
+        /// </summary>
+        /// <param name="filePath">Path to another file that checked for merging</param>
+        /// <returns>Flag if two files should be merged</returns>
         bool ShouldBeMerged(string filePath);
+        /// <summary>
+        /// Deserialized to dictionary content of json file
+        /// </summary>
         Dictionary<string, object> FileContent { get; set; }
+        /// <summary>
+        /// List of top properties in a file
+        /// </summary>
         IList<KeyValuePair<string, object>> MainProperties { get; }
+        /// <summary>
+        /// List of objects (non primitives) from configuration file
+        /// </summary>
         IList<KeyValuePair<string, object>> ConfigClasses { get; }
     }
 
