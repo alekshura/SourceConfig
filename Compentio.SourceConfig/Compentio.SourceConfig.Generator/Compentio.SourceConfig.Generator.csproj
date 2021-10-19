@@ -31,7 +31,7 @@
 
   <PropertyGroup>
     <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <PackageIcon>Logo.png</PackageIcon>
     <PackageIconUrl />
     <RepositoryUrl>https://github.com/alekshura/SourceConfig</RepositoryUrl>
@@ -41,6 +41,8 @@
     <Company>Compentio</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/alekshura/SourceConfig</PackageProjectUrl>
+    <Product>Compentio.SourceConfig</Product>
+    <PackageId>Compentio.SourceConfig</PackageId>
   </PropertyGroup>
 
   <Target Name="GetDependencyTargetPaths">
