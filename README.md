@@ -72,6 +72,8 @@ namespace Compentio.SourceConfig.App
 }
 ```
 `AppSettings` is taken from the filename, `Compentio.SourceConfig.App` is taken from place, where configuration file exsts.
+If there are few `appsettings` files used for different environments, e.g. `appsettings.development.json` or `appsettings.production.json`
+they are merged into one generated class. Merge is based on first prefix in filename - here `appsettings`.
 
 Now generated class can be used to retreive the configuration:
 
