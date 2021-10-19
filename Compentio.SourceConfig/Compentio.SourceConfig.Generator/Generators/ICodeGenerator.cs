@@ -1,14 +1,15 @@
-﻿using Compentio.SourceConfig.Generator.Context;
+﻿using Compentio.SourceConfig.Context;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 
-namespace Compentio.SourceConfig.Generator.Generators
+namespace Compentio.SourceConfig.Generators
 {
     /// <summary>
     /// One class code generator
@@ -33,6 +34,8 @@ namespace Compentio.SourceConfig.Generator.Generators
 
         public SourceText GenerateSource()
         {
+            Debug.WriteLine($"Start generating sources for '{_configurationFileContext.ClassName}' class.");
+
             var configSectionClasses = new StringBuilder();
             
             foreach (var configClass in _configurationFileContext.ConfigClasses)
@@ -82,6 +85,8 @@ namespace Compentio.SourceConfig.Generator.Generators
             sourceBuilder.Append("}");
 
             var tree = CSharpSyntaxTree.ParseText(sourceBuilder.ToString());
+
+            Debug.WriteLine($"End generating sources for '{_configurationFileContext.ClassName}' class. Success!");
             return SourceText.From(tree.GetRoot().NormalizeWhitespace().ToFullString(), Encoding.UTF8);
         }
 

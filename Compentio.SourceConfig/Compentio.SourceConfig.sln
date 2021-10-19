@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compentio.SourceConfig.App", "Compentio.SourceConfig.App\Compentio.SourceConfig.App.csproj", "{7786FADC-84C5-497F-A65D-DA226447D0C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Compentio.SourceConfig.App", "Compentio.SourceConfig.App\Compentio.SourceConfig.App.csproj", "{7786FADC-84C5-497F-A65D-DA226447D0C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compentio.SourceConfig.Generator", "Compentio.SourceConfig.Generator\Compentio.SourceConfig.Generator.csproj", "{6B7251EC-671F-426A-A3D0-1F6E9A9893D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Compentio.SourceConfig", "Compentio.SourceConfig.Generator\Compentio.SourceConfig.csproj", "{6B7251EC-671F-426A-A3D0-1F6E9A9893D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E64FBD47-C288-4CE7-9D71-79422F54B44D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

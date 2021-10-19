@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 
-namespace Compentio.SourceConfig.Generator.Context
+namespace Compentio.SourceConfig.Context
 {
     /// <summary>
     /// Contains information about one configuration file in te application
@@ -110,6 +110,10 @@ namespace Compentio.SourceConfig.Generator.Context
         {
             var configValues = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(content);
             var result = new Dictionary<string, object>();
+
+            if (configValues is null)
+                return result;
+
             foreach (var configValue in configValues)
             {
                 if (configValue.Value.ValueKind is JsonValueKind.Object)

@@ -1,15 +1,15 @@
-﻿using Compentio.SourceConfig.Generator.Generators;
-using Compentio.SourceConfig.Generator.Context;
+﻿using Compentio.SourceConfig.Generators;
+using Compentio.SourceConfig.Context;
 using Microsoft.CodeAnalysis;
 using System.Diagnostics;
 
-namespace Compentio.SourceConfig.Generator
+namespace Compentio.SourceConfig
 {
     /// <summary>
     /// Main source generator
     /// </summary>
     [Generator]
-    public class ConfigurationGenerator : ISourceGenerator
+    public class Generator : ISourceGenerator
     {
         public void Execute(GeneratorExecutionContext context)
         {
@@ -30,7 +30,7 @@ namespace Compentio.SourceConfig.Generator
 //                Debugger.Launch();
 //            }
 //#endif
-            //Debug.WriteLine("Initalize code generator");
+            Debug.WriteLine($"'{typeof(Generator).FullName}' initalized.");
         }
     }
 }

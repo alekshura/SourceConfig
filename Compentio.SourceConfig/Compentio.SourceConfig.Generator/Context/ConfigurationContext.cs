@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Compentio.SourceConfig.Generator.Context
+namespace Compentio.SourceConfig.Context
 {
      /// <summary>
      /// Contains for overall configurations that defined in json files in application
@@ -38,7 +38,7 @@ namespace Compentio.SourceConfig.Generator.Context
                 var content = configFile.GetText()?.ToString();
                 if (!string.IsNullOrEmpty(content))
                 {
-                    var fileContext = new ConfigurationFileContext(configFile.Path, _generatorExecutionContext.Compilation.AssemblyName, content);
+                    var fileContext = new ConfigurationFileContext(configFile.Path, _generatorExecutionContext.Compilation?.AssemblyName, content);
                     var fileToMerge = configFilesContext.FirstOrDefault(file => file.ShouldBeMerged(configFile.Path));
                     if (fileToMerge is not null)
                     {
