@@ -23,7 +23,8 @@ dotnet add package Compentio.SourceConfig
 ```
 
 # How to use
-Lets create you `*json` configuration file (any `json` files are treated as config files), e.g. `apsetting.json` 
+During creation of any `*json` file (any `json` files are treated as configuration files), e.g. `apsetting.json` 
+the POCO representation of this json is generated: 
 
 ```json
 {
@@ -71,7 +72,9 @@ namespace Compentio.SourceConfig.App
     }
 }
 ```
-`AppSettings` is taken from the filename, `Compentio.SourceConfig.App` is taken from place, where configuration file exsts.
+`AppSettings` is taken from the filename, `Compentio.SourceConfig.App` namespace is inherited configuration file directory (here, `appsettings.json` is in app root directory,
+thus main app namespace is used).
+
 If there are few `appsettings` files used for different environments, e.g. `appsettings.development.json` or `appsettings.production.json`
 they are merged into one generated class. Merge is based on first prefix in filename - here `appsettings`.
 
