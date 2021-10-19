@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2">
       <PrivateAssets>all</PrivateAssets>
@@ -9,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="5.0.2" PrivateAssets="all" GeneratePathProperty="true" />
-    <PackageReference Include="System.Text.Encodings.Web" Version="5.0.1" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Text.Json" Version="5.0.1" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="5.0.0" PrivateAssets="all" GeneratePathProperty="true" />
     <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="$(PKGSystem_Text_Json)\lib\netstandard2.0\System.Text.Json.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="$(PKGSystem_Text_Encodings_Web)\lib\netstandard2.0\System.Text.Encodings.Web.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
@@ -28,7 +29,7 @@
     <LangVersion>9.0</LangVersion>
     <IsRoslynComponent>true</IsRoslynComponent>
     <Nullable>enable</Nullable>
-    <Version>1.0.5</Version>
+    <Version>1.0.4</Version>
     <Description>Code generator for objects that are based on *.json configuration files: when developer adds some file or new properties to existng json configuration file the POCO objects for this configuration generated.</Description>
     <PackageIcon>Logo.png</PackageIcon>
     <PackageIconUrl />
