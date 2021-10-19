@@ -1,4 +1,5 @@
 ﻿using Compentio.SourceConfig.Context;
+using Compentio.SourceConfig.Extensions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
@@ -66,18 +67,18 @@ namespace Compentio.SourceConfig.Generators
                 if (value is JsonElement element && element.ValueKind == JsonValueKind.Array)
                 {
                     var propertyType = GetPropertyTypeName(element.EnumerateArray().FirstOrDefault());
-                    sourceBuilder.Append($"public IEnumerable<{propertyType}> {FormatPropertyName(key)} {{ get; set; }}");
+                    sourceBuilder.Append($"public IEnumerable<{propertyType}> {key.FromatPropertyName()} {{ get; set; }}");
                 }
                 else
                 {
-                    sourceBuilder.Append($"public string {FormatPropertyName(key)} {{ get; set; }}");
+                    sourceBuilder.Append($"public string {key.FromatPropertyName()} {{ get; set; }}");
                 }
             }
 
             foreach (var item in _configurationFileContext.ConfigClasses)
             {
                 var key = item.Key;
-                sourceBuilder.Append($"public {FormatPropertyName(key)} {FormatPropertyName(key)}{{ get; set; }}");
+                sourceBuilder.Append($"public {key.FromatPropertyName()} {key.FromatPropertyName()}{{ get; set; }}");
             }
 
             sourceBuilder.Append("}");
@@ -94,14 +95,15 @@ namespace Compentio.SourceConfig.Generators
         {
             var nestedClasses = new StringBuilder();
 
-            stringBuilder.Append($"public class {classInfo.Key}");
+            stringBuilder.Append("[ExcludeFromCodeCoverage]");
+            stringBuilder.Append($"public class {classInfo.Key.FromatClassName()}");
             stringBuilder.Append("{");
 
             foreach (var item in (Dictionary<string, object>)classInfo.Value)
             {
                 if (item.Value is Dictionary<string, object>)
                 {
-                    stringBuilder.Append($"public {item.Key} {FormatPropertyName(item.Key)} {{ get; set; }}");
+                    stringBuilder.Append($"public {item.Key} {item.Key.FromatPropertyName()} {{ get; set; }}");
                     BuildConfigClass(item, nestedClasses);
                 }
                 else
@@ -110,11 +112,11 @@ namespace Compentio.SourceConfig.Generators
                     var propertyType = GetPropertyTypeName(prop);
                     if (prop.ValueKind == JsonValueKind.Array)
                     {
-                        stringBuilder.Append($"public IEnumerable<{propertyType}> {FormatPropertyName(item.Key)} {{ get; set; }}");
+                        stringBuilder.Append($"public IEnumerable<{propertyType}> {item.Key.FromatPropertyName()} {{ get; set; }}");
                     }
                     else
                     {
-                        stringBuilder.Append($"public {propertyType} {FormatPropertyName(item.Key)} {{ get; set; }}");
+                        stringBuilder.Append($"public {propertyType} {item.Key.FromatPropertyName()} {{ get; set; }}");
                     }
                 }
             }
@@ -131,14 +133,6 @@ namespace Compentio.SourceConfig.Generators
                 JsonValueKind.True or JsonValueKind.False => "bool",
                 _ => "string",
             };
-        }
-
-        private string FormatPropertyName(string origin)
-        {
-            var underscore = "_";
-            return origin
-                .Replace(".", underscore)
-                .Replace("$", underscore);
         }
     }
 }

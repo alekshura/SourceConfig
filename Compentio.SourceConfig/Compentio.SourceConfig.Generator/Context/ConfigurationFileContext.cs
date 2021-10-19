@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Compentio.SourceConfig.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -99,11 +100,7 @@ namespace Compentio.SourceConfig.Context
         private string FormatClassName(string className)
         {
             var originName = className.Split('.').Where(item => !string.IsNullOrWhiteSpace(item)).First();
-
-            if (string.IsNullOrWhiteSpace(originName))
-                return string.Concat(className[0].ToString().ToUpper(), className.Substring(1));
-
-            return string.Concat(originName[0].ToString().ToUpper(), originName.Substring(1)).Replace("settings", "Settings");
+            return originName.FromatClassName();
         }
 
         private Dictionary<string, object> Deserialize(string content)
