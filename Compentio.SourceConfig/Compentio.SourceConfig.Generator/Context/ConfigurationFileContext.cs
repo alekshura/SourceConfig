@@ -65,7 +65,7 @@ namespace Compentio.SourceConfig.Context
         public IList<KeyValuePair<string, object>> ConfigClasses => _fileContent.Except(MainProperties)
                     .ToList();
 
-        public Dictionary<string, object> FileContent 
+        public Dictionary<string, object> FileContent
         { 
             get => _fileContent; 
             set => _fileContent = value; 
@@ -101,14 +101,19 @@ namespace Compentio.SourceConfig.Context
             var originName = className.Split('.').Where(item => !string.IsNullOrWhiteSpace(item)).First();
 
             if (string.IsNullOrWhiteSpace(originName))
-                return className.Replace("settings", "Settings");
+                return string.Concat(className[0].ToString().ToUpper(), className.Substring(1));
 
             return string.Concat(originName[0].ToString().ToUpper(), originName.Substring(1)).Replace("settings", "Settings");
         }
 
         private Dictionary<string, object> Deserialize(string content)
         {
-            var configValues = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(content);
+            var jsonSerializerOptions = new JsonSerializerOptions
+            {
+                ReadCommentHandling = JsonCommentHandling.Skip
+            };
+            
+            var configValues = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(content, jsonSerializerOptions);
             var result = new Dictionary<string, object>();
 
             if (configValues is null)
