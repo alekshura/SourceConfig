@@ -18,8 +18,25 @@
     <PackageReference Include="System.Text.Encodings.Web" Version="5.0.0" PrivateAssets="all" GeneratePathProperty="true" /> 
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\..\Compentio.Assets\Logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
   <PropertyGroup>
     <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+    <Version>1.0.1</Version>
+    <PackageIcon>Logo.png</PackageIcon>
+    <PackageIconUrl />
+    <RepositoryUrl>https://github.com/alekshura/SourceConfig</RepositoryUrl>
+    <PackageTags>CodeGenerator, Configuration</PackageTags>
+    <Copyright>Copyright (c) @alekshura Compentio 2021</Copyright>
+    <Authors>Aleksander Parchomenko</Authors>
+    <Company>Compentio</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/alekshura/SourceConfig</PackageProjectUrl>
   </PropertyGroup>
 
   <Target Name="GetDependencyTargetPaths">
