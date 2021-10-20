@@ -83,14 +83,13 @@ thus main app namespace is used).
 >In `*.cproj` project file the configuration files should be marked as `AdditionalFiles`:
 >```xml
 ><ItemGroup>
-    <AdditionalFiles Include="Appsettings.Development.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-    <AdditionalFiles Include="Appsettings.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </AdditionalFiles>
-  </ItemGroup>
->```
+>    <AdditionalFiles Include="Appsettings.Development.json">
+>      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+>    </AdditionalFiles>
+>    <AdditionalFiles Include="Appsettings.json">
+>      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+>    </AdditionalFiles>
+>  </ItemGroup>```
 
 If there are few `appsettings` files used for different environments, e.g. `appsettings.development.json` or `appsettings.production.json`
 they are merged into one generated class. Merge is based on first prefix in filename - here `appsettings`.
