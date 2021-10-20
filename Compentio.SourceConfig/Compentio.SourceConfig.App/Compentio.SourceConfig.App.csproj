@@ -25,6 +25,7 @@
 
 
   <ItemGroup>
+    <PackageReference Include="Compentio.SourceConfig" Version="1.0.10" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
   </ItemGroup>
@@ -41,10 +42,6 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Compentio.SourceConfig.Generator\Compentio.SourceConfig.csproj" OutputItemType="Analyzer"/>
   </ItemGroup>
 
 </Project>
