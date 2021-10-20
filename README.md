@@ -92,7 +92,7 @@ thus main app namespace is used).
 >  </ItemGroup>
 
 If there are few `appsettings` files used for different environments, e.g. `appsettings.development.json` or `appsettings.production.json`
-they are merged into one generated class. Merge is based on first prefix in filename - here `appsettings`.
+they are merged into one generated class. Merge is based on first prefix in filename - here is `appsettings`.
 
 Now generated class can be used to retreive the configuration:
 
