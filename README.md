@@ -80,7 +80,7 @@ namespace Compentio.SourceConfig.App
 `AppSettings` is taken from the filename, `Compentio.SourceConfig.App` namespace is inherited configuration file directory (here, `appsettings.json` is in app root directory,
 thus main app namespace is used).
 
->In `*.cproj` project file the configuration files should be marked as `AdditionalFiles`:
+>To enable processing `json` files, in `*.cproj` project the configs should be marked as `AdditionalFiles`:
 >```xml
 ><ItemGroup>
 >    <AdditionalFiles Include="Appsettings.Development.json">
