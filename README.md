@@ -7,7 +7,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/alekshura/SourceConfig)
 
 # Introduction
-`SourceConfig` is a code generator for objects that buit using `*.json` configuration files: 
+`SourceConfig` is a code generator for objects that are built on `*.json` configuration files: 
 when developer adds some file or new properties to existng json configuration file the POCO objects for this configuration generated. 
 
 It is based on [Source Generators](https://github.com/dotnet/roslyn/blob/main/docs/features/source-generators.md) feature
@@ -79,6 +79,8 @@ namespace Compentio.SourceConfig.App
 ```
 `AppSettings` is taken from the filename, `Compentio.SourceConfig.App` namespace is inherited configuration file directory (here, `appsettings.json` is in app root directory,
 thus main app namespace is used).
+
+>aaa
 
 If there are few `appsettings` files used for different environments, e.g. `appsettings.development.json` or `appsettings.production.json`
 they are merged into one generated class. Merge is based on first prefix in filename - here `appsettings`.
