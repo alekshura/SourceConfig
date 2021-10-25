@@ -8,7 +8,7 @@ using System.Text.Json;
 namespace Compentio.SourceConfig.Context
 {
     /// <summary>
-    /// Contains information about one configuration file in te application
+    /// Contains information about one configuration file in the application
     /// </summary>
     interface IConfigurationFileContext
     {
