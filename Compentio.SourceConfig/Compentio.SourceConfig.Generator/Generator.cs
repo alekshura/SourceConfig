@@ -13,9 +13,9 @@ namespace Compentio.SourceConfig
     {
         public void Execute(GeneratorExecutionContext context)
         {
-            var configMetadata = ConfigurationContext.CreateFromExecutionContext(context);
+            var configurationContext= ConfigurationContext.CreateFromExecutionContext(context);
 
-            foreach (var configFileContext in configMetadata.Context)
+            foreach (var configFileContext in configurationContext.Context)
             {
                 var generator = new CodeGenerator(configFileContext);
                 context.AddSource(configFileContext.FileName, generator.GenerateSource());
