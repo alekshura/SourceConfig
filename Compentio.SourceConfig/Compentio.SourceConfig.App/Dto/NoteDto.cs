@@ -1,5 +1,8 @@
-﻿namespace Compentio.SourceConfig.App.Dto
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace Compentio.SourceConfig.App.Dto
 {
+    [ExcludeFromCodeCoverage]
     public record NoteDto
     {
         public long Id { get; set; }

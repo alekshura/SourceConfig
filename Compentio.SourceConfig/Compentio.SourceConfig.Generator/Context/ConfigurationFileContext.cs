@@ -45,6 +45,7 @@ namespace Compentio.SourceConfig.Context
         IList<KeyValuePair<string, object>> ConfigClasses { get; }
     }
 
+    /// <inheritdoc />
     class ConfigurationFileContext : IConfigurationFileContext
     {
         private Dictionary<string, object> _fileContent;
@@ -58,20 +59,29 @@ namespace Compentio.SourceConfig.Context
             _assemblyName = assemblyName;
         }
 
+        /// <inheritdoc />
         public string ClassName => FormatClassName(Path.GetFileNameWithoutExtension(_filePath));
+        
+        /// <inheritdoc />
         public string FileName  => $"{ClassName}.cs";
+        
+        /// <inheritdoc />
         public IList<KeyValuePair<string, object>> MainProperties => _fileContent
                 .Where(dict => !(dict.Value is Dictionary<string, object>))
                 .ToList();
+        
+        /// <inheritdoc />
         public IList<KeyValuePair<string, object>> ConfigClasses => _fileContent.Except(MainProperties)
                     .ToList();
-
+       
+        /// <inheritdoc />
         public Dictionary<string, object> FileContent
         { 
             get => _fileContent; 
             set => _fileContent = value; 
         }
 
+        /// <inheritdoc />
         public string Namespace
         {
             get
@@ -88,6 +98,7 @@ namespace Compentio.SourceConfig.Context
             }
         }
 
+        /// <inheritdoc />
         public bool ShouldBeMerged(string filePath)
         {
             var sourceFileName = Path.GetFileNameWithoutExtension(_filePath);

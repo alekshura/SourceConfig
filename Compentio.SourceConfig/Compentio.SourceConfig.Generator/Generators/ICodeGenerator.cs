@@ -24,6 +24,7 @@ namespace Compentio.SourceConfig.Generators
         SourceText GenerateSource();
     }
 
+    /// <inheritdoc />
     class CodeGenerator : ICodeGenerator
     {
         private readonly IConfigurationFileContext _configurationFileContext;
@@ -33,6 +34,7 @@ namespace Compentio.SourceConfig.Generators
             _configurationFileContext = configurationFileContext;
         }
 
+        /// <inheritdoc />
         public SourceText GenerateSource()
         {
             Debug.WriteLine($"Start generating sources for '{_configurationFileContext.ClassName}' class.");

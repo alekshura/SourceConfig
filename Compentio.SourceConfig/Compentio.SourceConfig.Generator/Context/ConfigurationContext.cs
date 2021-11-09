@@ -15,6 +15,7 @@ namespace Compentio.SourceConfig.Context
         IEnumerable<IConfigurationFileContext> Context { get; }
     }
 
+    /// <inheritdoc />
     class ConfigurationContext : IConfigurationContext
     {
         private readonly GeneratorExecutionContext _generatorExecutionContext;
@@ -29,6 +30,7 @@ namespace Compentio.SourceConfig.Context
             LoadConfigFiles(_configFilesContext);
         }
 
+        /// <inheritdoc />
         public IEnumerable<IConfigurationFileContext> Context => _configFilesContext;
 
         private void LoadConfigFiles(IList<IConfigurationFileContext> configFilesContext)
