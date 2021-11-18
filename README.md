@@ -82,13 +82,13 @@ namespace Compentio.SourceConfig.App
 >To enable processing `json` files, in `*.cproj` project the configs should be marked as `AdditionalFiles`:
 >```xml
 ><ItemGroup>
->    <AdditionalFiles Include="Appsettings.Development.json">
->      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
->    </AdditionalFiles>
->    <AdditionalFiles Include="Appsettings.json">
->      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
->    </AdditionalFiles>
->  </ItemGroup>
+>   <AdditionalFiles Include="Appsettings.Development.json">
+>     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+>   </AdditionalFiles>
+>   <AdditionalFiles Include="Appsettings.json">
+>     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+>   </AdditionalFiles>
+></ItemGroup>
 
 If there are few `appsettings` files used for different environments, e.g. `appsettings.development.json` or `appsettings.production.json` etc.
 they are merged into one generated class. Merge is based on first prefix in filename - here is `appsettings`.
